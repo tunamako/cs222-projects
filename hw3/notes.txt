@@ -1,0 +1,3 @@
+HW3 A
+
+Very nice code. Easily maintainable, simple and direct.

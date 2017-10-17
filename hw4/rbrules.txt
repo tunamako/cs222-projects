@@ -1,0 +1,26 @@
+VISUALIZATION LINK
+https://cs.usfca.edu/~galles/visualization/RedBlack.html
+
+INVARIANTS
+root is black
+all leaves are black (including null nodes)
+a red node has black children
+every path to a leaf has the same black height
+
+ADDING A NODE
+tree->add(key, value)
+	normal bst add(key, value) // make sure new nodes are red
+	possibleNewRoot = node->rebalanceAdd()
+	if possibleNewRoot, update tree root
+
+TreeNode* node->rebalanceAdd()
+	if this node is the root, color it black DONE(return this node)
+	if this node’s parent is black DONE(return nullptr)
+	if this node’s uncle is red,
+		color this node’s parent and uncle black, 
+		color this node’s grandparent red
+		return grandparent->rebalanceAdd()
+	if this node is not a direct grandchild, 
+		rotate this node to make it direct
+		return rotate this node
+	return rotate this node’s parent up once DONE

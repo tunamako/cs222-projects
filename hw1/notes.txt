@@ -1,0 +1,6 @@
+HW1a ADT A
+HW1b HashTable A-
+
+Mild points off for not casting NULL to (void *) to remove warnings.
+Extra points off for a memory leak in the hash table constructor method.
+If the array allocation fails, you return an error, but do not free the previously allocated table object.

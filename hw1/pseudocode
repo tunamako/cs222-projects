@@ -1,0 +1,23 @@
+typedef struct hashTable {
+	struct hashTableMethods *methods;
+	uint32_t hash;
+	int size; // size of array
+	int count; // number of items in table
+	adtRef  *table;
+} hashTable, *hashTableRef;
+
+typedef struct hashTableMethods {
+	pfn hash // same implementation as adt
+	pfn equals // same implementation as adt
+	pfn description // return "aHashTable"
+	pfn size // number of items in table
+	pfn includes // returns true if argument is in table
+	pfn add // adds argument to table, returns true if successful 
+	pfn remove // remove argument from table if present
+} hashTableMethods, *hashTableMethods;
+
+example constructor
+	malloc(count * sizeof(adtRef))
+
+example add function
+	index = (hash of the item) % (number of slots in the table)
